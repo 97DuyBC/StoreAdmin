@@ -4,16 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<head>
-    <title>QL khách hàng</title>
-    @*<script src="/Scripts/jquery-3.2.1.js"></script>
-    <script src="/Scripts/jquery-3.2.1.min.js"></script>
-    <script src="/Scripts/jquery.tmpl.js"></script>
-    <script src="/Scripts/Customer/Index.js"></script>*@
-   
+<header>
+    <title>Đơn hàng</title>
     <script src="~/Scripts/jquery.tmpl.js"></script>
-    <script src="/Scripts/Customer/Index.js"></script>
-</head>
+    <script src="/Scripts/Order/Index.js"></script>
+</header>
 <body>
     <div class="col-lg-6">
         <div class="panel panel-default">
@@ -27,20 +22,20 @@
                         <thead id="TableTitle">
                             <tr>
                                 <th>ID</th>
-                                <th>Full Name</th>
-                                <th>City</th>
-                                <th>Country</th>
-                                <th>Phone</th>
+                                <th>Name customer</th>
+                                <th>Order date</th>
+                                <th>Order number</th>
+                                <th>Total amount</th>
                                 <!--Title bảng-->
                             </tr>
                         </thead>
                         <script type="text/html" id="Content">
                             <tr>
-                                <td>${Id}</td>
-                                <td>${FirstName} ${LastName}</td>
-                                <td>${City}</td>
-                                <td>${Country}</td>
-                                <td>${Phone}</td>
+                                <td>${OrderSMR.Id}</td>
+                                <td>${CustomerSMR.FirstName} ${CustomerSMR.LastName}</td>
+                                <td>${OrderSMR.OrderDate}</td> <!--Su dung ham formatDate(dt) trong file JS-->
+                                <td>${OrderSMR.OrderNumber}</td>
+                                <td>${OrderSMR.TotalAmount}</td>
                             </tr>
                             <!--Nôi dung bảng-->
                         </script>
@@ -53,5 +48,4 @@
         <!-- /.panel -->
     </div>
 </body>
-
 

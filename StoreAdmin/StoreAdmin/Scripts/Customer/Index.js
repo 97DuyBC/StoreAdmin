@@ -7,7 +7,7 @@
         $.ajax({
             method: "POST",
             type: "POST",
-            url: "/Customer/getAllCustomer",
+            url: "/Customer/getCustomer",
             data: JSON.stringify(reqData),
             dataType: "json",
             contentType: "application/json; charset=utf-8",

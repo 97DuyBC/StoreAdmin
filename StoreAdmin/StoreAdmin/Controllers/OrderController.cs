@@ -7,20 +7,21 @@ using StoreAdmin.Business;
 
 namespace StoreAdmin.Controllers
 {
-    public class CustomerController : Controller
+    public class OrderController : Controller
     {
-        // GET: Customer
+        // GET: Order
         public ActionResult Index()
         {
             return View();
         }
 
-        CustomerDAO Dao = new CustomerDAO();
+        OrderDAO OrdDao = new OrderDAO();
 
-        [HttpPost]      
-        public JsonResult getCustomer()
+        [HttpPost]
+        public JsonResult getOrder()
         {
-            var list = Dao.getAllCustomer();
+            var list = OrdDao.getAllOrder();
+
             return Json(new {Data = list});
         }
     }

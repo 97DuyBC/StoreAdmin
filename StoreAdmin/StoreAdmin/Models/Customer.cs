@@ -9,11 +9,14 @@ namespace StoreAdmin.Models
     [Table("Customer")]
     public partial class Customer
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
-        {
-            Orders = new HashSet<Order>();
-        }
+        /// <summary>
+        /// cac thuoc tinh them khi build = codefirst
+        /// </summary>
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public Customer()
+        //{
+        //    Orders = new HashSet<Order>();
+        //}
 
         public int Id { get; set; }
 
@@ -34,7 +37,7 @@ namespace StoreAdmin.Models
         [StringLength(20)]
         public string Phone { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Order> Orders { get; set; }
     }
 }
