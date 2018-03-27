@@ -9,11 +9,11 @@ namespace StoreAdmin.Models
     [Table("Supplier")]
     public partial class Supplier
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Supplier()
-        {
-            Products = new HashSet<Product>();
-        }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public Supplier()
+        //{
+        //    Products = new HashSet<Product>();
+        //}
 
         public int Id { get; set; }
 
@@ -39,7 +39,7 @@ namespace StoreAdmin.Models
         [StringLength(30)]
         public string Fax { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Product> Products { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace StoreAdmin.Models
     {
         public Customer CustomerSMR { set; get; }
         public Order OrderSMR { set; get; }
-
+        public Product ProductSMR { get; set; }
+        public Supplier SupplierSMR { get; set; }
     }
 }

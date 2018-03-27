@@ -1,18 +1,24 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Seach";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<header>
-    <title>Đơn hàng</title>
+
+<head>
+    <title>QL khách hàng</title>
     <script src="~/Scripts/jquery.tmpl.js"></script>
-    <script src="/Scripts/Order/Index.js"></script>
-</header>
+    <script src="/Scripts/Customer/seachCustomer.js"></script>
+</head>
 <body>
     <div class="col-lg-6">
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4>Danh sách khách hàng</h4>
+            <div class="input-group custom-search-form">
+                <input type="text" id="seach" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" onclick="seachCustomer()">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -21,20 +27,20 @@
                         <thead id="TableTitle">
                             <tr>
                                 <th>ID</th>
-                                <th>Name customer</th>
-                                <th>Order date</th>
-                                <th>Order number</th>
-                                <th>Total amount</th>
+                                <th>Full Name</th>
+                                <th>City</th>
+                                <th>Country</th>
+                                <th>Phone</th>
                                 <!--Title bảng-->
                             </tr>
                         </thead>
                         <script type="text/html" id="Content">
                             <tr>
-                                <td>${OrderSMR.Id}</td>
+                                <td>${CustomerSMR.Id}</td>
                                 <td>${CustomerSMR.FirstName} ${CustomerSMR.LastName}</td>
-                                <td>${FormatDate(OrderSMR.OrderDate)}</td> <!--Su dung ham FormatDate(dt) trong file JS// ten ko the la: formatDate()// co the do trung ham da dc dinh nghia-->
-                                <td>${OrderSMR.OrderNumber}</td>
-                                <td>${OrderSMR.TotalAmount}</td>
+                                <td>${CustomerSMR.City}</td>
+                                <td>${CustomerSMR.Country}</td>
+                                <td>${CustomerSMR.Phone}</td>
                             </tr>
                             <!--Nôi dung bảng-->
                         </script>
@@ -47,6 +53,4 @@
         <!-- /.panel -->
     </div>
 </body>
-
-
 

@@ -6,7 +6,7 @@
 <header>
     <title>Đơn hàng</title>
     <script src="~/Scripts/jquery.tmpl.js"></script>
-    <script src="/Scripts/Order/Index.js"></script>
+    <script src="~/Scripts/Product/Index.js"></script>
 </header>
 <body>
     <div class="col-lg-6">
@@ -21,20 +21,24 @@
                         <thead id="TableTitle">
                             <tr>
                                 <th>ID</th>
-                                <th>Name customer</th>
-                                <th>Order date</th>
-                                <th>Order number</th>
-                                <th>Total amount</th>
+                                <th>Name product</th>
+                                <th>Unit Price</th>
+                                <th>Package</th>
+                                <th>Is Discontinued</th>
+                                <th>Company Name</th>
+                                <th>Supplier City/Country</th>
                                 <!--Title bảng-->
                             </tr>
                         </thead>
                         <script type="text/html" id="Content">
                             <tr>
-                                <td>${OrderSMR.Id}</td>
-                                <td>${CustomerSMR.FirstName} ${CustomerSMR.LastName}</td>
-                                <td>${FormatDate(OrderSMR.OrderDate)}</td> <!--Su dung ham FormatDate(dt) trong file JS// ten ko the la: formatDate()// co the do trung ham da dc dinh nghia-->
-                                <td>${OrderSMR.OrderNumber}</td>
-                                <td>${OrderSMR.TotalAmount}</td>
+                                <td>${ProductSMR.Id}</td>
+                                <td>${ProductSMR.ProductName}</td>
+                                <td>${ProductSMR.UnitPrice}</td>
+                                <td>${ProductSMR.Package}</td>
+                                <td>${ProductSMR.IsDiscontinued}</td>
+                                <td>${SupplierSMR.CompanyName}</td>
+                                <td>${SupplierSMR.City}/${SupplierSMR.Country}</td>
                             </tr>
                             <!--Nôi dung bảng-->
                         </script>

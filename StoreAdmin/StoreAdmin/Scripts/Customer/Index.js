@@ -16,7 +16,6 @@
             }
         })
          .done(function (rs) {
-             var b = 0;
              $("#Content").tmpl(rs.Data).appendTo("#TableTitle");
          });
     }

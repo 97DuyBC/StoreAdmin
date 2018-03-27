@@ -6,20 +6,20 @@ using StoreAdmin.Models;
 
 namespace StoreAdmin.Business
 {
-    public class OrderDAO
-    { 
-        public List<SearchModelRes> getAllOrder()
+    public class ProductDAO
+    {
+        public List<SearchModelRes> getAllProduct()
         {
             using (var db = new DataEntities())
             {
                 List<SearchModelRes> rs = new List<SearchModelRes>();
 
-                var list = from cust in db.Customers
-                           join ord in db.Orders on cust.Id equals ord.CustomerId
+                var list = from pr in db.Products
+                           join supp in db.Suppliers on pr.SupplierId equals supp.Id 
                            select new SearchModelRes
                            {
-                               CustomerSMR = cust,
-                               OrderSMR = ord
+                               ProductSMR = pr,
+                               SupplierSMR = supp
                            };
                 rs = list.ToList();
                 return rs;

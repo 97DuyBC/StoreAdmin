@@ -15,13 +15,24 @@ namespace StoreAdmin.Controllers
             return View();
         }
 
-        CustomerDAO Dao = new CustomerDAO();
+        public ActionResult Seach()
+        {
+            return View();
+        }
+
+        CustomerDAO CusDao = new CustomerDAO();
 
         [HttpPost]      
         public JsonResult getCustomer()
         {
-            var list = Dao.getAllCustomer();
+            var list = CusDao.getAllCustomer();
             return Json(new {Data = list});
+        }
+
+        public JsonResult seachCusomer(String seachName)
+        {
+            var list = CusDao.seachCustumer(seachName);
+            return Json(new { Data = list, Message = "Success" });
         }
     }
 }

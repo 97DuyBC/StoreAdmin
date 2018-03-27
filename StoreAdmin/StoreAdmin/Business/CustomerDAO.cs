@@ -18,5 +18,21 @@ namespace StoreAdmin.Business
                 return db.Customers.ToList();
             }
         }
+
+        public List<SearchModelRes> seachCustumer(String seachName)
+        {
+            using (var db = new DataEntities())
+            { 
+                List<SearchModelRes> rs = new List<SearchModelRes>();
+                var list = from cust in db.Customers
+                           where ((cust.FirstName + cust.LastName).Contains(seachName))
+                           orderby cust.FirstName ascending, cust.LastName ascending
+                           select (new SearchModelRes {
+                               CustomerSMR = cust
+                           });
+                rs = list.ToList();
+                return rs;
+            }
+        }
     }
 }
