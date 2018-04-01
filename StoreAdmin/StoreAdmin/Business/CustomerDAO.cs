@@ -11,11 +11,21 @@ namespace StoreAdmin.Business
         /// Đưa ra toàn bộ danh sách khách hàng
         /// </summary>
         /// <returns>List<Customer></returns>
-        public List<Customer> getAllCustomer()
+        public List<SearchModelRes> getAllCustomer(SearchModelRes info, out int total)
         {
             using (var db = new DataEntities())
             {
-                return db.Customers.ToList();
+                List<SearchModelRes> rs = new List<SearchModelRes>();
+                total = 0;
+                var list = from cust in db.Customers
+                           orderby cust.Id
+                           select new SearchModelRes
+                           {
+                               CustomerSMR = cust
+                           };
+                total = list.Count();
+                rs = list.Skip(info.pageIndex * info.pageSize).Take(info.pageSize).ToList(); ;
+                return rs;
             }
         }
 
@@ -25,11 +35,12 @@ namespace StoreAdmin.Business
             { 
                 List<SearchModelRes> rs = new List<SearchModelRes>();
                 var list = from cust in db.Customers
-                           where ((cust.FirstName + cust.LastName).Contains(seachName))
+                           where ((cust.FirstName +" "+ cust.LastName).Contains(seachName))
                            orderby cust.FirstName ascending, cust.LastName ascending
                            select (new SearchModelRes {
                                CustomerSMR = cust
                            });
+
                 rs = list.ToList();
                 return rs;
             }

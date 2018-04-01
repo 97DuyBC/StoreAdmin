@@ -18,8 +18,8 @@
         }
     })
         .done(function (rs) {
-            var a = 1;
+            $("#TableTitle").empty();
             $("#Content").tmpl(rs.Data).appendTo("#TableTitle");
-            alert(rs.Message);
+            alert(rs.Messag + " KET_QUA: "+ rs.Total);
         });
 };

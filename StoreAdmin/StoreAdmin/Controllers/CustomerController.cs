@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using StoreAdmin.Business;
+using StoreAdmin.Models;
 
 namespace StoreAdmin.Controllers
 {
@@ -23,16 +24,18 @@ namespace StoreAdmin.Controllers
         CustomerDAO CusDao = new CustomerDAO();
 
         [HttpPost]      
-        public JsonResult getCustomer()
+        public JsonResult getCustomer(SearchModelRes info)
         {
-            var list = CusDao.getAllCustomer();
-            return Json(new {Data = list});
+            int total = 0;
+            var list = CusDao.getAllCustomer(info ,out total);
+            return Json(new { Data = list, Total = total, Message = "Success" });
         }
 
         public JsonResult seachCusomer(String seachName)
         {
             var list = CusDao.seachCustumer(seachName);
-            return Json(new { Data = list, Message = "Success" });
+            int a = list.Count();
+            return Json(new { Data = list, Message = "Success", Total = a });
         }
     }
 }

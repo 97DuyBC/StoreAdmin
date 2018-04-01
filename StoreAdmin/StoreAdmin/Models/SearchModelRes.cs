@@ -11,5 +11,8 @@ namespace StoreAdmin.Models
         public Order OrderSMR { set; get; }
         public Product ProductSMR { get; set; }
         public Supplier SupplierSMR { get; set; }
+        public int pageIndex { get; set; }
+        public int pageSize { get; set; }
+
     }
 }
