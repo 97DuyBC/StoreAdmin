@@ -2,12 +2,7 @@
     var a = 0;
     getAllCustomer();
 
-    if (pageIndex == 1) {
-        $('#aPrevious').hide();
-    }
-    else {
-        $('#aPrevious').show();
-    }
+    
     $('#aPrevious').click(function () {
         if (pageIndex > 1) {
             pageIndex--;
@@ -51,8 +46,14 @@
                  hasNext = false;
                  $('#aNext').hide();
              }
+             if (pageIndex == 1) {
+                 $('#aPrevious').hide();
+             }
+             else {
+                 $('#aPrevious').show();
+             };
 
-             $("#spanPageInfo").html(rs.Data.pageIndex / ((rs.Total%pageSize) + 1))
+             $("#spanPageInfo").html(pageIndex + "/" + Math.ceil(rs.Total / pageSize))
              if(rs.Total == 0)
              {
                  $("#bodypage").hide();

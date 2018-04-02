@@ -31,11 +31,11 @@ namespace StoreAdmin.Controllers
             return Json(new { Data = list, Total = total, Message = "Success" });
         }
 
-        public JsonResult seachCusomer(String seachName)
+        public JsonResult seachCusomer(SearchModelRes info)
         {
-            var list = CusDao.seachCustumer(seachName);
-            int a = list.Count();
-            return Json(new { Data = list, Message = "Success", Total = a });
+            int total = 0;
+            var list = CusDao.seachCustumer(info, out total);
+            return Json(new { Data = list, Message = "Success", Total = total});
         }
     }
 }

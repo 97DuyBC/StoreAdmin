@@ -24,24 +24,25 @@ namespace StoreAdmin.Business
                                CustomerSMR = cust
                            };
                 total = list.Count();
-                rs = list.Skip(info.pageIndex * info.pageSize).Take(info.pageSize).ToList(); ;
+                rs = list.Skip((info.pageIndex-1) * info.pageSize).Take(info.pageSize).ToList(); ;
                 return rs;
             }
         }
 
-        public List<SearchModelRes> seachCustumer(String seachName)
+        public List<SearchModelRes> seachCustumer(SearchModelRes info, out int total)
         {
             using (var db = new DataEntities())
             { 
+                
                 List<SearchModelRes> rs = new List<SearchModelRes>();
                 var list = from cust in db.Customers
-                           where ((cust.FirstName +" "+ cust.LastName).Contains(seachName))
+                           where ((cust.FirstName +" "+ cust.LastName).Contains(info.CustomerSMR.FirstName))
                            orderby cust.FirstName ascending, cust.LastName ascending
                            select (new SearchModelRes {
                                CustomerSMR = cust
                            });
-
-                rs = list.ToList();
+                total = list.Count();
+                rs = list.Skip((info.pageIndex - 1)*info.pageSize).Take(info.pageSize).ToList();
                 return rs;
             }
         }
