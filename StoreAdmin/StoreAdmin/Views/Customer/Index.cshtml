@@ -15,7 +15,7 @@
     <script src="/Scripts/Customer/Index.js"></script>
 </head>
 <body>
-    <div id="bodypage" class="col-lg-6">
+    <div id="bodypage">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4>Danh sách khách hàng</h4>
@@ -24,7 +24,7 @@
             <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
-                        <thead >
+                        <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Full Name</th>
@@ -33,26 +33,27 @@
                                 <th>Phone</th>
                                 <!--Title bảng-->
                             </tr>
-                            <tbody id="TableContent">
-                            </tbody>
+                        <tbody id="TableContent">
+                            <!--up noi dung bang-->
+                        </tbody>
                         </thead>
                         <script type="text/html" id="Template">
                             <tr>
-                                <td>${Id}</td>
-                                <td>${FirstName} ${LastName}</td>
-                                <td>${City}</td>
-                                <td>${Country}</td>
-                                <td>${Phone}</td>
+                                <td>${CustomerSMR.Id}</td>
+                                <td>${CustomerSMR.FirstName} ${CustomerSMR.LastName}</td>
+                                <td>${CustomerSMR.City}</td>
+                                <td>${CustomerSMR.Country}</td>
+                                <td>${CustomerSMR.Phone}</td>
                             </tr>
                             <!--Nôi dung bảng-->
                         </script>
                     </table>
-                    <div >
+                    <div>
                         <div class="col-md-12 col-sm-12 text-center">
                             <a href="javascript:void(0);" id="aPrevious" style="display: inline; font-size:large" class="previous-page">
                                 <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
                             </a>
-                            <a href="javascript:void(0);" class="paging-info" style="font-size:large">
+                            <a href="javascript:void(0);" class="span-paging" style="font-size:large">
                                 <span class="span-paging">
                                     Trang
                                     <span id="spanPageInfo" />
