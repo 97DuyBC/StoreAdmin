@@ -46,5 +46,16 @@ namespace StoreAdmin.Business
                 return rs;
             }
         }
+
+        public Boolean insertCustomer(SearchModelRes info)
+        {
+            using(var db = new DataEntities())
+            {
+                db.Customers.Add(info.CustomerSMR);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

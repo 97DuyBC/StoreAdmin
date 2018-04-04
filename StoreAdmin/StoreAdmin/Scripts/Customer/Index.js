@@ -1,7 +1,6 @@
 ﻿$(document).ready(function () {
-    var a = 0;
-    getAllCustomer();
 
+    getAllCustomer();
     
     $('#aPrevious').click(function () {
         if (pageIndex > 1) {
@@ -37,6 +36,7 @@
          .done(function (rs) {
              $("#TableContent").empty();
              $("#Template").tmpl(rs.Data).appendTo("#TableContent");
+             $("#spanPageInfo").html(pageIndex + "/" + Math.ceil(rs.Total / pageSize));
 
              if (rs.Total > pageIndex * pageSize) {
                  hasNext = true;
@@ -52,8 +52,7 @@
              else {
                  $('#aPrevious').show();
              };
-
-             $("#spanPageInfo").html(pageIndex + "/" + Math.ceil(rs.Total / pageSize))
+            
              if(rs.Total == 0)
              {
                  $("#bodypage").hide();

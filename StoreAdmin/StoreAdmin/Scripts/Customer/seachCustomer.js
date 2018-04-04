@@ -1,23 +1,33 @@
 ﻿$(document).ready(function () {
 
     $('#seach').click(function () {
+        pageIndex = 1;
         check();
         seachCustomer();
     });
 
-    $("#aNext").click(function () {
+    $('#aNext').click(function () {
         pageIndex++;
         seachCustomer();
     });
 
-    $("#aPrevious").click(function () {
-        pageIndex++;
-        seachCustomer();
+    $('#aPrevious').click(function () {
+        if (pageIndex > 1)
+        {
+            pageIndex--;
+            seachCustomer();
+        }
+        else
+            $('#aPrevious').hide();
+        
     });
+    var customerName;
     function check() {
-        var customerName = $('#seachName').val().trim();
-        if (customerName == '' || customerName.leagh == 0) {
-            return alert("Bạn chưa nhập dữ liệu tìm kiếm!!!!");}
+        customerName = $('#seachName').val().trim();
+        if (customerName == '' || customerName.leagh == 0)
+        {
+            return alert("Bạn chưa nhập dữ liệu tìm kiếm!!!!");
+        }
     }
     function seachCustomer() {
         var customer = { FirstName: customerName }
@@ -41,23 +51,36 @@
             .done(function (rs) {
                 $("#Content").empty();
                 $("#Template").tmpl(rs.Data).appendTo("#Content");
-                alert(rs.Messag + " KET_QUA: " + rs.Total);
-                $("#spanPageInfo").html(pageIndex + "/" + Math.ceil((rs.Total / pageSize) + 1));
+                //alert(rs.Messag + " KET_QUA: " + rs.Total);
+                $("#spanPageInfo").html(pageIndex + "/" + Math.ceil((rs.Total / pageSize)));
 
                 if (rs.Total > pageIndex * pageSize) {
-                    $("aNext").hide();
+                    hasNext = true;
+                    $('#aNext').show();
                 }
                 else {
-                    $("aNext").show();
-                }
-                if (pageIndex > 1) {
-                    $("aPrevious").show();
-                }
-                else {
-                    $("aPrevious").hide();
+                    hasNext = false;
+                    $('#aNext').hide();
                 }
 
-                //todo
+                if (pageIndex == 1) {
+                    $('#aPrevious').hide();
+                }
+                else {
+                    $('#aPrevious').show();
+                }
+
+                if(rs.Total > 0)
+                {
+                    $("#TableContent").show();
+                    $("#no-data").hide();
+                }
+                else
+                {
+                    $("#TableContent").hide();
+                    $("#no-data").show();
+                }
+
             });
     };
 });
