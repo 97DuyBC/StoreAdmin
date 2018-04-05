@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using StoreAdmin.Business;
+using StoreAdmin.Models;
 
 namespace StoreAdmin.Controllers
 {
@@ -15,6 +16,11 @@ namespace StoreAdmin.Controllers
             return View();
         }
 
+        public ActionResult Seach()
+        {
+            return View();
+        }
+
         ProductDAO PrDAO = new ProductDAO();
 
         [HttpPost]
@@ -22,6 +28,15 @@ namespace StoreAdmin.Controllers
         {
             var list = PrDAO.getAllProduct();
             return Json(new { Data = list });
+        }
+
+        public JsonResult seachProduct(SearchModelRes info)
+        {
+            int total = 0;
+            var message = "Successful";
+
+            var list = PrDAO.seachProductName(info, out total);
+            return Json(new { Data = list, Message = message, Total = total });
         }
     }
 }

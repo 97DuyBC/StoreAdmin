@@ -14,6 +14,10 @@ namespace StoreAdmin.Controllers
         {
             return View();
         }
+        public ActionResult Add()
+        {
+            return View();
+        }
 
         OrderDAO OrdDao = new OrderDAO();
 
