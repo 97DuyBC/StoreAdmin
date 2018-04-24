@@ -92,16 +92,15 @@
 
             })
     }
-    var Customer = {};
-    $('#select').click(function (){
-        Customer = {
-            Id: $('tr').eq(0),
-            FullName: $('tr').eq(1),
-            Phone: $('tr').eq(2)
-        }
-        $('#customerInfo').html("<h5>" + Customer.FullName+"</h5>")
+
+    $('tbody#tableContent button.btn').click(function () {
+        alert("okk")
     })
 })
+
+function addCustumerOrder(id, fullName) {
+    alert(id, fullname);
+}
 
 var pageIndex = 1;
 var pageSize = 6;

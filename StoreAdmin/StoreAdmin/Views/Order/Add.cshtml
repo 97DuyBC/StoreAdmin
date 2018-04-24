@@ -22,7 +22,7 @@
                 <span class="input-group-btn">
                     <button id="seach" class="btn btn-default" type="button" style="width: 43px">
                         <i class="fa fa-search"></i>
-                    </button>
+                    </button><br />
                 </span>
             </div>
             <!--Table content-->
@@ -65,7 +65,11 @@
                         <td>${CustomerSMR.Id}</td>
                         <td>${CustomerSMR.FirstName} ${CustomerSMR.LastName}</td>
                         <td>${CustomerSMR.Phone}</td>
-                        <td style="width: 43px;"><button id="select" class="btn btn-info btn-circle" style="width: 25px;height:25px"><i class="fa fa-check"></i></button></td>
+                        <td style="width: 43px;">
+                            <button class="btn" title="${CustomerSMR.Id}" style="width: 25px;height:25px">
+                                <i class="fa fa-check"></i>
+                            </button>
+                        </td>
                     </tr>
                     <!--Nôi dung bảng-->
                 </script>
