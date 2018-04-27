@@ -203,6 +203,7 @@
     <Content Include="Scripts\Customer\seachCustomer.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="Scripts\Order\Add.js" />
     <Content Include="Scripts\Order\Index.js" />
     <Content Include="Scripts\Product\Index.js" />
     <Content Include="Scripts\Product\seachProduct.js" />

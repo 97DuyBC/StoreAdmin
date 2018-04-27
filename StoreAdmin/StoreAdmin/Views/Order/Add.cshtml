@@ -10,8 +10,8 @@
     <h2>Tạo đơn hàng</h2>
     <!--Chon khách hàng-->
     <div class="col-lg-6">
-        <h4><label>Chọn hoặc thêm mới khách hàng</label><br/></h4>
         <div>
+        <h4>
             <input id="btnSeach" type="button" class="btn btn-success" value="Chọn khách hàng" style="font-size:15px"></input>
             <a href="/Customer/Add" id="btnCreate"><input type="button" class="btn btn-success" value="Thêm mới" style="font-size:15px"></input></a>
         </div><br />
@@ -34,11 +34,27 @@
                             <th>ID</th>
                             <th>Full Name</th>
                             <th>Phone</th>
-                            <th></th>
+                            <th>
+                                <button class="btn-social" style="width: 25px;height:25px">
+                                    <i class="fa fa-check"></i>
+                                </button>
+                            </th><!--Title bảng-->
+                        </tr>
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>
+                                <button class="btn-social" style="width: 25px;height:25px" itemid="ID">
+                                    <i class="fa fa-check"></i>
+                                </button>
+                            </td>
                             <!--Title bảng-->
                         </tr>
+                    </tbody>
                     <tbody id="TableContent">
-                        <!--up noi dung bang-->
+                        <!--noi dung bang-->
                     </tbody>
                     </thead>
                 </table>
@@ -66,7 +82,7 @@
                         <td>${CustomerSMR.FirstName} ${CustomerSMR.LastName}</td>
                         <td>${CustomerSMR.Phone}</td>
                         <td style="width: 43px;">
-                            <button class="btn" title="${CustomerSMR.Id}" style="width: 25px;height:25px">
+                            <button class="btn-social" style="width: 25px;height:25px">
                                 <i class="fa fa-check"></i>
                             </button>
                         </td>

@@ -24,10 +24,12 @@ namespace StoreAdmin.Controllers
         ProductDAO PrDAO = new ProductDAO();
 
         [HttpPost]
-        public JsonResult getAllProduct()
+        public JsonResult getAllProduct(SearchModelRes info)
         {
-            var list = PrDAO.getAllProduct();
-            return Json(new { Data = list });
+            int total = 0;
+            var message = "Successful";
+            var list = PrDAO.getAllProduct(info, out total);
+            return Json(new { Data = list, Total = total, Message = message });
         }
 
         public JsonResult seachProduct(SearchModelRes info)
