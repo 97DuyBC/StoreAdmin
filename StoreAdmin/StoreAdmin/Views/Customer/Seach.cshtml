@@ -11,9 +11,10 @@
 </head>
 <body>
     <div>
+        <label>Tìm kiếm theo tên</label>
         <div class="input-group custom-search-form" style="width: 30%">
-            <input type="text" id="seachName" class="form-control" placeholder="Search...">
             <span class="input-group-btn">
+                <input type="text" id="seachName" class="form-control" placeholder="Search...">
                 <button id="seach" class="btn btn-default" type="button">
                     <i class="fa fa-search"></i>
                 </button>
@@ -35,17 +36,17 @@
                         <!--up noi dung bang-->
                     </tbody>
                     </thead>
-                    <script type="text/html" id="Template">
-                        <tr>
-                            <td>${CustomerSMR.Id}</td>
-                            <td>${CustomerSMR.FirstName} ${CustomerSMR.LastName}</td>
-                            <td>${CustomerSMR.City}</td>
-                            <td>${CustomerSMR.Country}</td>
-                            <td>${CustomerSMR.Phone}</td>
-                        </tr>
-                        <!--Nôi dung bảng-->
-                    </script>
-                </table><br />
+                </table>
+                <script type="text/html" id="Template">
+                    <tr>
+                        <td>${CustomerSMR.Id}</td>
+                        <td>${CustomerSMR.FirstName} ${CustomerSMR.LastName}</td>
+                        <td>${CustomerSMR.City}</td>
+                        <td>${CustomerSMR.Country}</td>
+                        <td>${CustomerSMR.Phone}</td>
+                    </tr>
+                    <!--Nôi dung bảng-->
+                </script>
                 <div style="text-align: center; background-color:lightskyblue">
                     <a href="javascript:void(0);" id="aPrevious" style="display: none; font-size:large" class="previous-page">
                         <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
