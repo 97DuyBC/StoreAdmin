@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using StoreAdmin.Business;
-using StoreAdmin.Models;
 
 namespace StoreAdmin.Controllers
 {
@@ -23,12 +22,11 @@ namespace StoreAdmin.Controllers
         OrderDAO OrdDao = new OrderDAO();
 
         [HttpPost]
-        public JsonResult getOrder(SearchModelRes info)
+        public JsonResult getOrder()
         {
-            int total = 0;
-            var list = OrdDao.getAllOrder(info ,out total);
+            var list = OrdDao.getAllOrder();
 
-            return Json(new {Data = list, Total = total, Message = "Success" });
+            return Json(new {Data = list});
         }
     }
 }

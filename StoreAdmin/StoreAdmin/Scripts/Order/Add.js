@@ -93,14 +93,14 @@
             })
     }
 
-    $('.btn-social').click(function () {
-        var id = $(this).attr('itemid');
-        alert("okk" + id);
+    $('tbody#tableContent button.btn').click(function () {
+        alert("okk")
     })
 })
 
-//function addCustumerOrder(id, fullName) {
-//    alert(id, fullname);
-//}
+function addCustumerOrder(id, fullName) {
+    alert(id, fullname);
+}
+
 var pageIndex = 1;
 var pageSize = 6;

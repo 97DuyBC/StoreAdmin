@@ -72,3 +72,5 @@ F:\DuyBC\VisuaStudio\StoreAdmin\StoreAdmin\StoreAdmin\bin\System.Web.Mvc.xml
 F:\DuyBC\VisuaStudio\StoreAdmin\StoreAdmin\StoreAdmin\obj\Debug\StoreAdmin.csprojResolveAssemblyReference.cache
 F:\DuyBC\VisuaStudio\StoreAdmin\StoreAdmin\StoreAdmin\obj\Debug\StoreAdmin.dll
 F:\DuyBC\VisuaStudio\StoreAdmin\StoreAdmin\StoreAdmin\obj\Debug\StoreAdmin.pdb
+E:\TaiLieu\VisualStudio\StoreAdmin-3cd56b22dd1fd07eee5b61a720acd626c34d994b\StoreAdmin-3cd56b22dd1fd07eee5b61a720acd626c34d994b\StoreAdmin\StoreAdmin\obj\Debug\StoreAdmin.dll
+E:\TaiLieu\VisualStudio\StoreAdmin-3cd56b22dd1fd07eee5b61a720acd626c34d994b\StoreAdmin-3cd56b22dd1fd07eee5b61a720acd626c34d994b\StoreAdmin\StoreAdmin\obj\Debug\StoreAdmin.pdb

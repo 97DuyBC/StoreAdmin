@@ -1,25 +1,8 @@
 ﻿$(document).ready(function () {
     getOrder();
 
-    $('#aPrevious').click(function () {
-        if (pageIndex > 1) {
-            pageIndex--;
-            getOrder();
-        } else {
-            $('aPrevious').hide();
-        }
-    });
-
-    $('#aNext').click(function () {
-        pageIndex++;
-        getOrder();
-    });
-
     function getOrder() {
-        var req = {
-            pageIndex: pageIndex,
-            pageSize : pageSize
-        };
+        var req = {};
         $.ajax({
             method: "POST",
             type: "POST",
@@ -32,33 +15,7 @@
             }
         })
         .done(function (rs) {
-            $("#TableContent").empty();
-            $("#Template").tmpl(rs.Data).appendTo("#TableContent");
-            $("#spanPageInfo").html(pageIndex + "/" + Math.ceil(rs.Total / pageSize));
-
-            if (rs.Total > pageIndex * pageSize) {
-                hasNext = true;
-                $('#aNext').show();
-            }
-            else {
-                hasNext = false;
-                $('#aNext').hide();
-            }
-            if (pageIndex == 1) {
-                $('#aPrevious').hide();
-            }
-            else {
-                $('#aPrevious').show();
-            };
-
-            if (rs.Total == 0) {
-                $("#bodypage").hide();
-                $("#no-data").show();
-            }
-            else {
-                $("#bodypage").show();
-                $("#no-data").hide();
-            }
+            $("#Content").tmpl(rs.Data).appendTo("#TableTitle");
         });
     }   
 });
@@ -69,5 +26,4 @@ function FormatDate(jsonDate)
     return value.getDate() + 1 + "/" + value.getMonth() + "/" + value.getFullYear();
 }
 
-var pageSize = 10;
-var pageIndex = 1;
+

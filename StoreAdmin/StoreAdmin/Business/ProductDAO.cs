@@ -8,7 +8,7 @@ namespace StoreAdmin.Business
 {
     public class ProductDAO
     {
-        public List<SearchModelRes> getAllProduct(SearchModelRes info, out int total)
+        public List<SearchModelRes> getAllProduct()
         {
             using (var db = new DataEntities())
             {
@@ -16,14 +16,12 @@ namespace StoreAdmin.Business
 
                 var list = from pr in db.Products
                            join supp in db.Suppliers on pr.SupplierId equals supp.Id 
-                           orderby pr.Id
                            select new SearchModelRes
                            {
                                ProductSMR = pr,
                                SupplierSMR = supp
                            };
-                total = list.Count();
-                rs = list.Skip((info.pageIndex-1)*info.pageSize).Take(info.pageSize).ToList();
+                rs = list.ToList();
                 return rs;
             }
         }

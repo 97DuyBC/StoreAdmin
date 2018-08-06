@@ -28,11 +28,8 @@
                             <th>Supplier City/Country</th>
                             <!--Title bảng-->
                         </tr>
-                        <tbody id="TableContent">
-                            <!--up noi dung bang-->
-                        </tbody>
                     </thead>
-                    <script type="text/html" id="Template">
+                    <script type="text/html" id="Content">
                         <tr>
                             <td>${ProductSMR.Id}</td>
                             <td>${ProductSMR.ProductName}</td>
@@ -45,35 +42,12 @@
                         <!--Nôi dung bảng-->
                     </script>
                 </table>
-                <div>
-                    <div class="col-md-12 col-sm-12 text-center">
-                        <a href="javascript:void(0);" id="aPrevious" style="display: inline; font-size:large" class="previous-page">
-                            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="span-paging" style="font-size:large">
-                            <span class="span-paging">
-                                Trang
-                                <span id="spanPageInfo" />
-                            </span>
-                        </a>
-                        <a href="javascript:void(0);" id="aNext" style="display: inline; font-size:large" class="next-page">
-                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
             <!-- /.table-responsive -->
         </div>
         <!-- /.panel-body -->
     </div>
     <!-- /.panel -->
-    <!--Hien thi khi ko co du lieu tu sever-->
-    <div id="no-data" class="row" style="display: none">
-        <div class="col-lg-12">
-            <h3 class="page-header">Không có dữ liệu</h3>
-        </div>
-        <!--  -->
-    </div>
 </body>
 
 
